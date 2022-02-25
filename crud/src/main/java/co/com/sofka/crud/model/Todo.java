@@ -7,8 +7,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="todo")
 public class Todo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,11 +20,17 @@ public class Todo {
     private String name;
     
     private boolean isCompleted;
+    public Categoria getCategoria() {
+        return categoria;
+    }
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
     
-    @ManyToOne()
+    @ManyToOne(optional = false)
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
-    
+
     public Todo(String name, boolean isCompleted) {
         this.name = name;
         this.isCompleted = isCompleted;

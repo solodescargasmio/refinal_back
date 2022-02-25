@@ -1,7 +1,4 @@
 package co.com.sofka.crud.controller;
-
-import java.io.Console;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,7 +15,7 @@ import co.com.sofka.crud.service.TodoService;
 
 @RestController
 @CrossOrigin("http://localhost:8080")
-@RequestMapping("/api")
+@RequestMapping("/categoria/todo")
 public class TodoController {
     @Autowired
     private TodoService service;
