@@ -14,7 +14,7 @@ import co.com.sofka.crud.model.Todo;
 import co.com.sofka.crud.service.TodoService;
 
 @RestController
-@CrossOrigin("http://localhost:8080")
+@CrossOrigin("*")
 @RequestMapping("/categoria/todo")
 public class TodoController {
     @Autowired
@@ -26,10 +26,18 @@ public class TodoController {
     }
 
     @PostMapping()
-    public Todo save(@RequestBody Todo todo){
-        return service.save(todo);
+    public String save(@RequestBody Todo todo){
+        return "DENTRO POST  ";//service.save(todo);
     }
-    @PutMapping(value = "/{todo}")
+
+    @PostMapping("/")
+    public Todo saveTodo(@RequestBody Todo todo){
+
+           return service.save(todo);
+         
+    }
+
+    @PutMapping()
     public Todo update(@RequestBody Todo todo){
         if(todo.getId()!=null){
             return service.save(todo);

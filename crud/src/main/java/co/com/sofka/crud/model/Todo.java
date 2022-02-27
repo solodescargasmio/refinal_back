@@ -20,14 +20,8 @@ public class Todo {
     private String name;
     
     private boolean isCompleted;
-    public Categoria getCategoria() {
-        return categoria;
-    }
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
-    
-    @ManyToOne(optional = false)
+
+    @ManyToOne()
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
@@ -37,6 +31,25 @@ public class Todo {
     }
     public Todo() {
     }
+
+    public Long getCategoria() {
+        return categoria.getId();
+    }
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+    
+    
+
+    public Todo(String name, boolean isCompleted, Categoria categoria) {
+        this.name = name;
+        this.isCompleted = isCompleted;
+        this.categoria = categoria;
+    }
+
+
+
+    
     public Long getId() {
         return id;
     }
@@ -55,9 +68,9 @@ public class Todo {
     public void setCompleted(boolean isCompleted) {
         this.isCompleted = isCompleted;
     }
+
     @Override
     public String toString() {
-        return "Todo [id=" + id + ", isCompleted=" + isCompleted + ", name=" + name + "]";
+        return "Todo [categoria=" + categoria + ", id=" + id + ", isCompleted=" + isCompleted + ", name=" + name + "]";
     }
-     
 }

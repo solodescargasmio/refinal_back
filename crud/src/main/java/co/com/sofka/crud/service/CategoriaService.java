@@ -18,6 +18,10 @@ public class CategoriaService {
         return catRepo.findAll();
     }
 
+    public Optional<Categoria> getId(Long id){
+        return catRepo.findById(id);
+    }
+
     public Categoria save(Categoria categoria){
         return catRepo.save(categoria);
     }
