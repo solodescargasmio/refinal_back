@@ -26,23 +26,17 @@ public class TodoController {
     }
 
     @PostMapping()
-    public String save(@RequestBody Todo todo){
-        return "DENTRO POST  ";//service.save(todo);
+    public Todo saveCategoria(@RequestBody Todo todo){
+        return this.service.save(todo);
     }
-
     @PostMapping("/")
-    public Todo saveTodo(@RequestBody Todo todo){
-
-           return service.save(todo);
-         
+    public Todo save(@RequestBody Todo todo){
+        return this.service.save(todo);
     }
 
     @PutMapping()
-    public Todo update(@RequestBody Todo todo){
-        if(todo.getId()!=null){
-            return service.save(todo);
-        }else throw new RuntimeException("No existe el id para actualizar");
-        
+    public Todo savePut(@RequestBody Todo todo){
+        return this.service.save(todo);
     }
 
     @DeleteMapping(value = "/{id}")
